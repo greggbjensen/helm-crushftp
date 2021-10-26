@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  crushftp:
+    image: ${DOCKER_REGISTRY}crushftp:${DOCKER_TAG}
+    build:
+      context: ./images/crushftp
+      dockerfile: ./Dockerfile
