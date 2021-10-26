@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
   curl \
   wget \
   unzip \
+  procps \
 	&& update-ca-certificates
 
 RUN wget -O /tmp/CrushFTP10.zip https://www.crushftp.com/early10/CrushFTP10.zip
@@ -16,6 +17,7 @@ RUN unzip -o -q /tmp/CrushFTP10.zip -d /var/opt/
 RUN rm -f /tmp/CrushFTP10.zip
 RUN chmod +x /var/opt/CrushFTP10/crushftp_init.sh
 
+ADD ./startup.sh /var/opt/startup.sh
 ENTRYPOINT [ "/bin/bash", "/var/opt/startup.sh" ]
 CMD ["-c"]
 

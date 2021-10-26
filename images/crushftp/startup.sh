@@ -5,7 +5,8 @@ if [ -z ${CRUSH_ADMIN_USER} ]; then
     CRUSH_ADMIN_USER=crushadmin
 fi
 
-CRUSH_ADMIN_PASSWORD="NOT DISPLAYED!"
+if [ -z ${CRUSH_ADMIN_PASSWORD} ] && [ -f ${CRUSH_FTP_BASE_DIR}/admin_user_set ]; then
+    CRUSH_ADMIN_PASSWORD="NOT DISPLAYED!"
 elif [ -z ${CRUSH_ADMIN_PASSWORD} ] && [ ! -f ${CRUSH_FTP_BASE_DIR}/admin_user_set ]; then
     CRUSH_ADMIN_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 fi
@@ -32,6 +33,7 @@ do
 done
 
 echo "########################################"
+echo "# URL:		${CRUSH_ADMIN_PROTOCOL}://127.0.0.1:${CRUSH_ADMIN_PORT}"
 echo "# User:		${CRUSH_ADMIN_USER}"
 echo "# Password:	${CRUSH_ADMIN_PASSWORD}"
 echo "########################################"

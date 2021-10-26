@@ -6,7 +6,7 @@ Helm chart and docker image for CrushFTP server.
 2. Build and start the image by running the following command:
 
     ```
-    docker-compose up
+    docker-compose up --build
     ```
 
 # References
