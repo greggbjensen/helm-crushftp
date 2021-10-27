@@ -104,13 +104,14 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
     ```bash
     helm package ../charts/crushftp
     ```
-3. Update index.yaml:
+3. Copy the contents of `index.yaml` to `index-previous.yaml`
+4. Update index.yaml:
 
     ```bash
-    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview1 .
+    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview2 --merge index-previous.yaml .
     ```
-4. Create a new release on GitHub
-5. Upload helm package to release
+5. Create a new release on GitHub
+6. Upload helm package to release
 
 # References
 
