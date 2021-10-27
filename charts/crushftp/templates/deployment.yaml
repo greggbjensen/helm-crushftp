@@ -84,7 +84,7 @@ spec:
       volumes:
         - name: config-volume
           persistentVolumeClaim:
-            claimName: {{ include "crush-ftp.fullname" . }}
+            claimName: {{ include "crushftp.fullname" . }}
         {{- range .Values.volumes }}
         - name: {{ .name }}
           persistentVolumeClaim:
