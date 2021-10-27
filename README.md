@@ -8,12 +8,12 @@ See the full documentation at https://greggbjensen.github.io/helm-crushftp/.
 
 Add the helm repository and install the chart.
 
-    ```
-    helm repo add crushftp https://kubernetes.github.io/ingress-nginx
-    helm repo update
+```
+helm repo add crushftp https://kubernetes.github.io/ingress-nginx
+helm repo update
 
-    helm install crushftp crushftp/crushftp
-    ```
+helm install crushftp crushftp/crushftp
+```
 
 ## Helm chart values
 
@@ -22,7 +22,7 @@ Override helm chart values with the settings you want.
 | Parameter                    | Description                                                                                                | Default      |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------ |
 | admin.username               | Username for the initial admin account.                                                                    | crushadmin   |
-| admin.password               | Password for the initial admin account.                                                                    | <generated>  |
+| admin.password               | Password for the initial admin account.                                                                    | *generated*  |
 | admin.protocol               | Protocol for health checks and probs.                                                                      | http         |
 | admin.port                   | Port for health checks and probs.                                                                          | 8080         |
 | tls.secretName               | Name of the secret to use for the TLS certificate.                                                         | crushftp-tls |
