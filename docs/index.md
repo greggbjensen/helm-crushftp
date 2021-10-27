@@ -5,7 +5,7 @@ Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or HTTPS using Cr
 # Getting started
 
 ```
-helm repo add crushftp https://greggbjensen.github.io/helm-crushftp/
+helm repo add crushftp https://kubernetes.github.io/ingress-nginx
 helm repo update
 
 helm install crushftp crushftp/crushftp
@@ -53,34 +53,3 @@ docker run -p 21:21 -p 443:443 -p 2000-2100:2000-2100 -p 2222:2222 -p 8080:8080 
 
 # CrushFTP Configuration
 Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
-
-
-# Contributing
-1. Install Docker from https://www.docker.com/get-started
-2. Build and start the image by running the following command:
-
-    ```bash
-    docker-compose up --build
-    ```
-
-## Publishing helm chart
-1. Switch to the docs directory:
-    ```bash
-    cd docs
-    ```
-2. Create a new helm package:
-
-    ```bash
-    helm package ../charts/crushftp
-    ```
-3. Update index.yaml:
-
-    ```bash
-    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview1 .
-    ```
-4. Create a new release on GitHub
-5. Upload helm package to release
-
-# References
-- Docker image based on https://github.com/MarkusMcNugen/docker-CrushFTP
-- [CrushFTP - Linux Install](https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Linux%20Install)
