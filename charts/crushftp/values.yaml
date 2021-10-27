@@ -1,4 +1,32 @@
 # Default values for crushftp.
+
+# Project specific
+admin:
+  username: gadmin
+  password: 'goF!l3Share'
+tls:
+  secretName: crush-ftp-tls
+volumes:
+  - name: lims
+    claimName: gomeyra-api-lims
+    mountPath: /mnt/FTP/Shared/lims
+  - name: mirth
+    claimName: nextgen-connect
+    mountPath: /mnt/FTP/Shared/mirthshared
+configVolume:
+  size: 8Gi
+loadBalancerIp: 127.0.0.1
+
+# Shared
+shared:
+  hosts:
+    crushFtp:
+      root: .local.com
+      prefix: ftp
+  ingress:
+    clusterIssuer: ''
+  storageClassName: default
+
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -71,7 +99,7 @@ resources: {}
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 1
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
