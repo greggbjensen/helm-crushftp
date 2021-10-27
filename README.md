@@ -1,9 +1,15 @@
-# helm-crushftp
-Helm chart and docker image for CrushFTP server.
-
 # CrushFTP
 
-Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or HTTPS using CrushFTP.
+Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or HTTPS using CrushFTP using Helm and docker.
+
+# Getting started
+
+```
+helm repo add crushftp https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install crushftp crushftp/crushftp
+```
 
 # Docker Image
 ## Volumes
