@@ -57,9 +57,27 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 1. Install Docker from https://www.docker.com/get-started
 2. Build and start the image by running the following command:
 
-    ```
+    ```bash
     docker-compose up --build
     ```
+
+## Publishing helm chart
+1. Switch to the docs directory:
+    ```bash
+    cd docs
+    ```
+2. Create a new helm package:
+
+    ```bash
+    helm package ../charts/crushftp
+    ```
+3. Update index.yaml:
+
+    ```bash
+    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview1 .
+    ```
+4. Create a new release on GitHub
+5. Upload helm package to release
 
 # References
 - Docker image based on https://github.com/MarkusMcNugen/docker-CrushFTP
