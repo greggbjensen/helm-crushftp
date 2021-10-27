@@ -2,17 +2,14 @@
 
 # Project specific
 admin:
-  username: gadmin
-  password: 'goF!l3Share'
+  username: crushadmin
+  password: ''
 tls:
-  secretName: crush-ftp-tls
-volumes:
-  - name: lims
-    claimName: gomeyra-api-lims
-    mountPath: /mnt/FTP/Shared/lims
-  - name: mirth
-    claimName: nextgen-connect
-    mountPath: /mnt/FTP/Shared/mirthshared
+  secretName: crushftp-tls
+volumes: [] # Volumes to mount to the image of other sites, etc.
+  # - name: another-volume
+  #   claimName: another-volume-claim
+  #   mountPath: /mnt/FTP/Shared/another-volume
 configVolume:
   size: 8Gi
 loadBalancerIp: 127.0.0.1
