@@ -90,7 +90,21 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 2. Build and start the image by running the following command:
 
     ```bash
-    docker-compose up --build
+    docker-compose up --build --no-cache
+    ```
+
+## Publishing docker image
+
+1. Set the `.env` file `DOCKER_TAG` variable to the new version
+2. Build the image:
+
+    ```bash
+    docker-compose build --no-cache
+    ```
+3. Push the image to Dockerhub
+
+    ```bash
+    docker push greggbjensen/crushftp:0.1.0-preview3
     ```
 
 ## Publishing helm chart
@@ -108,24 +122,10 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 4. Update index.yaml:
 
     ```bash
-    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview2 --merge index-previous.yaml .
+    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview3 --merge index-previous.yaml .
     ```
 5. Create a new release on GitHub
 6. Upload helm package to release
-
-## Publishing docker image
-
-1. Set the `.env` file `DOCKER_TAG` variable to the new version
-2. Build the image:
-
-    ```bash
-    docker-compose build
-    ```
-3. Push the image to Dockerhub
-
-    ```bash
-    docker push greggbjensen/crushftp:0.1.0-preview2
-    ```
 
 # References
 
