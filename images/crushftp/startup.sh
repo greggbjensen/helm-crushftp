@@ -3,7 +3,7 @@ CRUSH_FTP_BASE_DIR="/var/opt/CrushFTP10"
 
 if [[ ! -f ${CRUSH_FTP_BASE_DIR}/installed ]] ; then
     echo "Copying CrushFTP for first install..."
-    cp -R /install/CrushFTP10 ${CRUSH_FTP_BASE_DIR}
+    cp -R /install/CrushFTP10 /var/opt
     touch ${CRUSH_FTP_BASE_DIR}/installed
 fi
 
