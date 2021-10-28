@@ -90,7 +90,7 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 2. Build and start the image by running the following command:
 
     ```bash
-    docker-compose up --build --no-cache
+    docker-compose up --build
     ```
 
 ## Publishing docker image
