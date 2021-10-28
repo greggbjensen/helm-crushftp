@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 CRUSH_FTP_BASE_DIR="/var/opt/CrushFTP10"
 
+if [[ ! -f ${CRUSH_FTP_BASE_DIR}/installed ]] ; then
+    echo "Copying CrushFTP for first install..."
+    cp /install/CrushFTP10 ${CRUSH_FTP_BASE_DIR}
+    touch ${CRUSH_FTP_BASE_DIR}/installed
+fi
+
 if [ -z ${CRUSH_ADMIN_USER} ]; then
     CRUSH_ADMIN_USER=crushadmin
 fi
