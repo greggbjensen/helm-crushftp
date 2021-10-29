@@ -68,7 +68,8 @@ spec:
             httpGet:
               path: /
               port: http
-            failureThreshold: 1
+            timeoutSeconds: 10
+            failureThreshold: 3
             periodSeconds: 10
           startupProbe:
             httpGet:
@@ -80,6 +81,8 @@ spec:
             httpGet:
               path: /
               port: http
+            failureThreshold: 1
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
