@@ -10,12 +10,12 @@ if [[ ! -f ${FTP_CONFIG_BASE_DIR}/config_initialized.txt ]] ; then
         mkdir -p ${FTP_CONFIG_BASE_DIR}
     fi
 
-    cd ${FTP_CONFIG_BASE_DIR} && mkdir backup logs SavedReports users jobs syncsDB statsDB
+    cd ${FTP_CONFIG_BASE_DIR} && mkdir backup logs settings SavedReports users syncsDB statsDB
     ln -s ${FTP_CONFIG_BASE_DIR}/backup ${CRUSH_FTP_BASE_DIR}/backup
     ln -s ${FTP_CONFIG_BASE_DIR}/logs ${CRUSH_FTP_BASE_DIR}/logs
+    ln -s ${FTP_CONFIG_BASE_DIR}/settings ${CRUSH_FTP_BASE_DIR}/settings
     ln -s ${FTP_CONFIG_BASE_DIR}/SavedReports ${CRUSH_FTP_BASE_DIR}/SavedReports
     ln -s ${FTP_CONFIG_BASE_DIR}/users ${CRUSH_FTP_BASE_DIR}/users
-    ln -s ${FTP_CONFIG_BASE_DIR}/jobs ${CRUSH_FTP_BASE_DIR}/jobs
     ln -s ${FTP_CONFIG_BASE_DIR}/syncsDB ${CRUSH_FTP_BASE_DIR}/syncsDB
     ln -s ${FTP_CONFIG_BASE_DIR}/statsDB ${CRUSH_FTP_BASE_DIR}/statsDB
     touch ${FTP_CONFIG_BASE_DIR}/config_initialized.txt
@@ -45,15 +45,15 @@ if [[ ! -f ${CRUSH_FTP_BASE_DIR}/admin_user_set.txt ]] ; then
     touch ${CRUSH_FTP_BASE_DIR}/admin_user_set.txt
 fi
 
-${CRUSH_FTP_BASE_DIR}/crushftp_init.sh start -Dcrushftp.prefs=${CRUSH_FTP_BASE_DIR}/prefs/
+${CRUSH_FTP_BASE_DIR}/crushftp_init.sh start
 
-until [ -f prefs.XML ]
+until [ -f ${CRUSH_FTP_BASE_DIR}/settings/prefs.XML ]
 do
      sleep 1
 done
 
 echo "Setting default provider to System.out."
-sed -i "s/<logging_provider><\/logging_provider>/<logging_provider>crushftp.handlers.log.LoggingProviderSystemOut<\/logging_provider>/g" ${CRUSH_FTP_BASE_DIR}/prefs.XML
+sed -i "s/<logging_provider><\/logging_provider>/<logging_provider>crushftp.handlers.log.LoggingProviderSystemOut<\/logging_provider>/g" ${CRUSH_FTP_BASE_DIR}/settings/prefs.XML
 
 echo "########################################"
 echo "# URL:		${CRUSH_ADMIN_PROTOCOL}://127.0.0.1:${CRUSH_ADMIN_PORT}"
