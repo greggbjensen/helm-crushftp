@@ -2,5 +2,5 @@ apiVersion: v2
 name: crushftp
 description: Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or HTTPS using CrushFTP
 type: application
-version: 0.1.0-preview7
-appVersion: 0.1.0-preview7
+version: 0.1.0-preview8
+appVersion: 0.1.0-preview8
