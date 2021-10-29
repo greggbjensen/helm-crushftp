@@ -81,13 +81,14 @@ spec:
             httpGet:
               path: /
               port: http
-            failureThreshold: 1
+            timeoutSeconds: 10
+            failureThreshold: 3
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: config-volume
-              mountPath: /var/opt/CrushFTP10
+              mountPath: /mnt/config
             {{- range .Values.volumes }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}

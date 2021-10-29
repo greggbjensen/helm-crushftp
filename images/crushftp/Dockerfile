@@ -11,14 +11,16 @@ RUN apt-get update && apt-get install -y \
   procps \
 	&& update-ca-certificates
 
+# Setup CrushFTP
 RUN wget -O /tmp/CrushFTP10.zip https://www.crushftp.com/early10/CrushFTP10.zip
-RUN unzip -o -q /tmp/CrushFTP10.zip -d /install
+RUN unzip -o -q /tmp/CrushFTP10.zip -d /var/opt
 RUN rm -f /tmp/CrushFTP10.zip
-RUN chmod +x /install/CrushFTP10/crushftp_init.sh
+RUN chmod +x /var/opt/CrushFTP10/crushftp_init.sh
 
+# Add SQLJBC for MSSQL
 RUN wget -O /tmp/sqljdbc_9.4.0.0_enu.zip https://download.microsoft.com/download/b/c/5/bc5e407f-97ff-42ea-959d-12f2391063d7/sqljdbc_9.4.0.0_enu.zip
 RUN unzip -o -q /tmp/sqljdbc_9.4.0.0_enu.zip -d /tmp/sqljdbc_9.4.0.0_enu
-RUN cd /tmp/sqljdbc_9.4.0.0_enu && cp -RT 'sqljdbc_9.4\enu' /install/CrushFTP10
+RUN cd /tmp/sqljdbc_9.4.0.0_enu && cp -RT 'sqljdbc_9.4\enu' /var/opt/CrushFTP10
 RUN rm -f /tmp/sqljdbc_9.4.0.0_enu.zip
 RUN rm -rf /tmp/sqljdbc_9.4.0.0_enu
 
