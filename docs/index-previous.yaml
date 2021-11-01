@@ -90,6 +90,17 @@ entries:
     - https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview2/crushftp-0.1.0-preview2.tgz
     version: 0.1.0-preview2
   - apiVersion: v2
+    appVersion: 0.1.0-preview10
+    created: "2021-10-29T16:45:30.2288162-06:00"
+    description: Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or
+      HTTPS using CrushFTP
+    digest: 2559b4f122e8640b79ce9ae1836d2b563fd1b70e006da107503c0ac53a9c6081
+    name: crushftp
+    type: application
+    urls:
+    - https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview10/crushftp-0.1.0-preview10.tgz
+    version: 0.1.0-preview10
+  - apiVersion: v2
     appVersion: 0.1.0-preview1
     created: "2021-10-27T16:24:34.488809-06:00"
     description: Share your files securely with FTP, Implicit FTPS, SFTP, HTTP, or
@@ -100,4 +111,4 @@ entries:
     urls:
     - https://github.com/greggbjensen/helm-crushftp/releases/download/0.1.0-preview1/crushftp-0.1.0-preview1.tgz
     version: 0.1.0-preview1
-generated: "2021-10-29T10:09:41.1410701-06:00"
+generated: "2021-10-29T16:45:30.2273599-06:00"

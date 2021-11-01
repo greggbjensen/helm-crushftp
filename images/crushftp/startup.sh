@@ -52,9 +52,6 @@ do
      sleep 1
 done
 
-echo "Setting default provider to System.out."
-sed -i "s/<logging_provider><\/logging_provider>/<logging_provider>crushftp.handlers.log.LoggingProviderSystemOut<\/logging_provider>/g" ${CRUSH_FTP_BASE_DIR}/settings/prefs.XML
-
 echo "########################################"
 echo "# URL:		${CRUSH_ADMIN_PROTOCOL}://127.0.0.1:${CRUSH_ADMIN_PORT}"
 echo "# User:		${CRUSH_ADMIN_USER}"
