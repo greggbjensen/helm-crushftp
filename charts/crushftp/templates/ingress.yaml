@@ -22,6 +22,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/ssl-redirect: "True"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
     {{- if .Values.shared.ingress.clusterIssuer }}
     cert-manager.io/cluster-issuer: {{ .Values.shared.ingress.clusterIssuer }}
     {{- end }}
