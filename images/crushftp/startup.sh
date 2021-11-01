@@ -13,8 +13,6 @@ if [[ ! -f ${FTP_CONFIG_BASE_DIR}/config_initialized.txt ]] ; then
     # Do not symbolically link logs or it will impact performance.
     cd ${FTP_CONFIG_BASE_DIR} && mkdir backup settings SavedReports users syncsDB statsDB
     touch ${FTP_CONFIG_BASE_DIR}/config_initialized.txt
-
-    echo "Because this was an intial setup, you will want to restart the pod once fully ready for best performance."
 fi
 
 echo "Establishing symbolic links..."
