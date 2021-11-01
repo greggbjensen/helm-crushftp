@@ -19,6 +19,8 @@ if [[ ! -f ${FTP_CONFIG_BASE_DIR}/config_initialized.txt ]] ; then
     ln -s ${FTP_CONFIG_BASE_DIR}/syncsDB ${CRUSH_FTP_BASE_DIR}/syncsDB
     ln -s ${FTP_CONFIG_BASE_DIR}/statsDB ${CRUSH_FTP_BASE_DIR}/statsDB
     touch ${FTP_CONFIG_BASE_DIR}/config_initialized.txt
+
+    echo "Because this was an intial setup, you will want to restart the pod once fully ready for best performance."
 fi
 
 if [ -z ${CRUSH_ADMIN_USER} ]; then
