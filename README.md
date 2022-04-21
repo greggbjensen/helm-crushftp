@@ -25,6 +25,7 @@ Override helm chart values with the settings you want.
 | admin.password               | Password for the initial admin account.                                                                    | *generated*  |
 | admin.protocol               | Protocol for health checks and probs.                                                                      | http         |
 | admin.port                   | Port for health checks and probs.                                                                          | 8080         |
+| features.enableFtp           | Used to enable FTP protocol if needed.                                                                     | false        |
 | tls.secretName               | Name of the secret to use for the TLS certificate.                                                         | crushftp-tls |
 | volumes                      | Set of volumes from other sites or containers to mount.<br> Requires `name`, `claimName`, and `mountPath`. | [ ]          |
 | configVolume.size            | Size of the CrushFTP configuration volume.                                                                 | 8Gi          |
