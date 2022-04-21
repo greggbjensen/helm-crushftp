@@ -43,7 +43,6 @@ spec:
             - name: CRUSH_ADMIN_PORT
               value: {{ .Values.admin.port | quote }}
           ports:
-          ports:
             - name: http
               containerPort: {{ .Values.admin.port }}
               protocol: TCP
@@ -53,16 +52,18 @@ spec:
             - name: https
               containerPort: 443
               protocol: TCP
-            - name: ftp
-              containerPort: 21
-              protocol: TCP
             - name: sftp
               containerPort: 2222
               protocol: TCP
-            {{- range (untilStep 0 101 1) }}
+            {{- if .Values.features.enableFtp }}
+            - name: ftp
+              containerPort: 21
+              protocol: TCP
+              {{- range (untilStep 0 101 1) }}
             - name: 'ftp-pas-{{ . }}'
               containerPort: {{ add 2000 . }}
               protocol: TCP
+              {{- end }}
             {{- end }}
           livenessProbe:
             httpGet:

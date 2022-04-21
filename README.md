@@ -25,6 +25,7 @@ Override helm chart values with the settings you want.
 | admin.password               | Password for the initial admin account.                                                                    | *generated*  |
 | admin.protocol               | Protocol for health checks and probs.                                                                      | http         |
 | admin.port                   | Port for health checks and probs.                                                                          | 8080         |
+| features.enableFtp           | Used to enable FTP protocol if needed.                                                                     | false        |
 | tls.secretName               | Name of the secret to use for the TLS certificate.                                                         | crushftp-tls |
 | volumes                      | Set of volumes from other sites or containers to mount.<br> Requires `name`, `claimName`, and `mountPath`. | [ ]          |
 | configVolume.size            | Size of the CrushFTP configuration volume.                                                                 | 8Gi          |
@@ -104,7 +105,7 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 3. Push the image to Dockerhub
 
     ```bash
-    docker push greggbjensen/crushftp:1.0.2
+    docker push greggbjensen/crushftp:1.0.3
     ```
 
 ## Publishing helm chart
@@ -122,7 +123,7 @@ Visit the [CrushFTP 10 Wiki](https://www.crushftp.com/crush10wiki/)
 4. Update index.yaml:
 
     ```bash
-    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/1.0.2 --merge index-previous.yaml .
+    helm repo index --url https://github.com/greggbjensen/helm-crushftp/releases/download/1.0.3 --merge index-previous.yaml .
     ```
 5. Create a new release on GitHub
 6. Upload helm package to release

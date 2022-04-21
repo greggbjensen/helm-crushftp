@@ -15,19 +15,21 @@ spec:
       port: 9090
       targetPort: 9090
       protocol: TCP
-    - name: ftp
-      port: 21
-      targetPort: 21
-      protocol: TCP
     - name: sftp
       port: 2222
       targetPort: 2222
       protocol: TCP
-    {{- range (untilStep 0 101 1) }}
+    {{- if .Values.features.enableFtp }}
+    - name: ftp
+      port: 21
+      targetPort: 21
+      protocol: TCP
+      {{- range (untilStep 0 101 1) }}
     - name: 'ftp-pas-{{ . }}'
       port: {{ add 2000 . }}
       targetPort: {{ add 2000 . }}
       protocol: TCP
+      {{- end }}
     {{- end }}
   selector:
     {{- include "crushftp.selectorLabels" . | nindent 4 }}
